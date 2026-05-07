@@ -13,5 +13,6 @@ struct HWPPreviewApp: App {
         WindowGroup {
             ContentView()
         }
+        .windowResizability(.contentSize)
     }
 }
