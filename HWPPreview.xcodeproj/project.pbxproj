@@ -6,14 +6,73 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6D26CC022FAAD31000E8D4F1 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D26CC012FAAD31000E8D4F1 /* Quartz.framework */; };
+		6D26CC0E2FAAD31000E8D4F1 /* HWPQuickLookPreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6D26CBFF2FAAD31000E8D4F1 /* HWPQuickLookPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6D26CC0C2FAAD31000E8D4F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D26CBE52FAAD2AD00E8D4F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D26CBFE2FAAD31000E8D4F1;
+			remoteInfo = HWPQuickLookPreview;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6D26CC132FAAD31000E8D4F1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6D26CC0E2FAAD31000E8D4F1 /* HWPQuickLookPreview.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6D26CBED2FAAD2AD00E8D4F1 /* HWPPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWPPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D26CBFF2FAAD31000E8D4F1 /* HWPQuickLookPreview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HWPQuickLookPreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D26CC012FAAD31000E8D4F1 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6D26CC0F2FAAD31000E8D4F1 /* Exceptions for "HWPQuickLookPreview" folder in "HWPQuickLookPreview" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6D26CBFE2FAAD31000E8D4F1 /* HWPQuickLookPreview */;
+		};
+		6D26CC152FAAD34300E8D4F1 /* Exceptions for "HWPPreview" folder in "HWPPreview" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6D26CBEC2FAAD2AD00E8D4F1 /* HWPPreview */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6D26CBEF2FAAD2AD00E8D4F1 /* HWPPreview */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6D26CC152FAAD34300E8D4F1 /* Exceptions for "HWPPreview" folder in "HWPPreview" target */,
+			);
 			path = HWPPreview;
+			sourceTree = "<group>";
+		};
+		6D26CC032FAAD31000E8D4F1 /* HWPQuickLookPreview */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6D26CC0F2FAAD31000E8D4F1 /* Exceptions for "HWPQuickLookPreview" folder in "HWPQuickLookPreview" target */,
+			);
+			path = HWPQuickLookPreview;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +85,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6D26CBFC2FAAD31000E8D4F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D26CC022FAAD31000E8D4F1 /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				6D26CBEF2FAAD2AD00E8D4F1 /* HWPPreview */,
+				6D26CC032FAAD31000E8D4F1 /* HWPQuickLookPreview */,
+				6D26CC002FAAD31000E8D4F1 /* Frameworks */,
 				6D26CBEE2FAAD2AD00E8D4F1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +110,17 @@
 			isa = PBXGroup;
 			children = (
 				6D26CBED2FAAD2AD00E8D4F1 /* HWPPreview.app */,
+				6D26CBFF2FAAD31000E8D4F1 /* HWPQuickLookPreview.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6D26CC002FAAD31000E8D4F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D26CC012FAAD31000E8D4F1 /* Quartz.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +133,12 @@
 				6D26CBE92FAAD2AD00E8D4F1 /* Sources */,
 				6D26CBEA2FAAD2AD00E8D4F1 /* Frameworks */,
 				6D26CBEB2FAAD2AD00E8D4F1 /* Resources */,
+				6D26CC132FAAD31000E8D4F1 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6D26CC0D2FAAD31000E8D4F1 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				6D26CBEF2FAAD2AD00E8D4F1 /* HWPPreview */,
@@ -69,6 +149,28 @@
 			productName = HWPPreview;
 			productReference = 6D26CBED2FAAD2AD00E8D4F1 /* HWPPreview.app */;
 			productType = "com.apple.product-type.application";
+		};
+		6D26CBFE2FAAD31000E8D4F1 /* HWPQuickLookPreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D26CC102FAAD31000E8D4F1 /* Build configuration list for PBXNativeTarget "HWPQuickLookPreview" */;
+			buildPhases = (
+				6D26CBFB2FAAD31000E8D4F1 /* Sources */,
+				6D26CBFC2FAAD31000E8D4F1 /* Frameworks */,
+				6D26CBFD2FAAD31000E8D4F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6D26CC032FAAD31000E8D4F1 /* HWPQuickLookPreview */,
+			);
+			name = HWPQuickLookPreview;
+			packageProductDependencies = (
+			);
+			productName = HWPQuickLookPreview;
+			productReference = 6D26CBFF2FAAD31000E8D4F1 /* HWPQuickLookPreview.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +183,9 @@
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					6D26CBEC2FAAD2AD00E8D4F1 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					6D26CBFE2FAAD31000E8D4F1 = {
 						CreatedOnToolsVersion = 26.2;
 					};
 				};
@@ -100,12 +205,20 @@
 			projectRoot = "";
 			targets = (
 				6D26CBEC2FAAD2AD00E8D4F1 /* HWPPreview */,
+				6D26CBFE2FAAD31000E8D4F1 /* HWPQuickLookPreview */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6D26CBEB2FAAD2AD00E8D4F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D26CBFD2FAAD31000E8D4F1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +235,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6D26CBFB2FAAD31000E8D4F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6D26CC0D2FAAD31000E8D4F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D26CBFE2FAAD31000E8D4F1 /* HWPQuickLookPreview */;
+			targetProxy = 6D26CC0C2FAAD31000E8D4F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6D26CBF62FAAD2AE00E8D4F1 /* Debug */ = {
@@ -259,6 +387,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HWPPreview/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -291,6 +420,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HWPPreview/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -303,6 +433,68 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		6D26CC112FAAD31000E8D4F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = HWPQuickLookPreview/HWPQuickLookPreview.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS7CSVL2U8;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HWPQuickLookPreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HWPQuickLookPreview;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ny64.HWPPreview.HWPQuickLookPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6D26CC122FAAD31000E8D4F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = HWPQuickLookPreview/HWPQuickLookPreview.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS7CSVL2U8;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HWPQuickLookPreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HWPQuickLookPreview;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ny64.HWPPreview.HWPQuickLookPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -326,6 +518,15 @@
 			buildConfigurations = (
 				6D26CBF92FAAD2AE00E8D4F1 /* Debug */,
 				6D26CBFA2FAAD2AE00E8D4F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D26CC102FAAD31000E8D4F1 /* Build configuration list for PBXNativeTarget "HWPQuickLookPreview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D26CC112FAAD31000E8D4F1 /* Debug */,
+				6D26CC122FAAD31000E8D4F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
