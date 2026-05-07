@@ -1,0 +1,34 @@
+:root {
+  color-scheme: light dark;
+  font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  color: CanvasText;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.viewer {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.page {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+}
+
+.page svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
