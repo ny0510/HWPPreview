@@ -5,6 +5,10 @@
   --preview-page-width: 100%;
 }
 
+:-webkit-scrollbar {
+  display: none;
+}
+
 html,
 body {
   width: 100%;
@@ -40,6 +44,10 @@ body {
   width: var(--preview-page-width);
   margin: 0;
   overflow: hidden;
+}
+
+.page + .page {
+  margin-top: 4px;
 }
 
 .page svg {
