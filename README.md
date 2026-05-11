@@ -15,7 +15,6 @@ Finder에서 `.hwp`, `.hwpx` 한글 문서를 바로 훑어볼 수 있게 해주
 
 - Finder Quick Look에서 `.hwp`, `.hwpx` 문서 미리보기
 - 트랙패드 핀치 제스처로 문서 확대 및 축소
-- 실제 문서 크기에 맞춘 Quick Look 미리보기 창 크기
 - 문서 미리보기만 남긴 가벼운 WebView 렌더러
 - `rhwp` 기반 HWP/HWPX 파싱 및 SVG 렌더링
 
