@@ -12,6 +12,8 @@ import WebKit
 class PreviewViewController: NSViewController, QLPreviewingController, WKNavigationDelegate, WKScriptMessageHandler {
 
     private static let resourceScheme = "hwp-preview"
+    private static let initialContentSize = NSSize(width: 640, height: 800)
+    private static let minimumContentSize = NSSize(width: 320, height: 320)
 
     private struct PreviewDocument {
         let fileName: String
@@ -26,18 +28,20 @@ class PreviewViewController: NSViewController, QLPreviewingController, WKNavigat
     private var isRendererBootstrapped = false
     private var bootstrapAttempts = 0
     private var pendingDocument: PreviewDocument?
+    private var currentPreferredContentSize = initialContentSize
 
     override var preferredContentSize: NSSize {
         get {
-            NSSize(width: 595, height: 842)
+            currentPreferredContentSize
         }
         set {
-            super.preferredContentSize = newValue
+            currentPreferredContentSize = Self.clampedContentSize(newValue)
+            super.preferredContentSize = currentPreferredContentSize
         }
     }
 
     override func loadView() {
-        view = NSView(frame: NSRect(x: 0, y: 0, width: 595, height: 842))
+        view = NSView(frame: NSRect(origin: .zero, size: currentPreferredContentSize))
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.textBackgroundColor.cgColor
 
@@ -110,10 +114,16 @@ class PreviewViewController: NSViewController, QLPreviewingController, WKNavigat
         guard message.name == "hwpPreviewLog" else { return }
 
         if let payload = message.body as? [String: Any],
-           let level = payload["level"] as? String,
-           level == "error" {
-            let text = payload["message"] as? String ?? "Unknown JavaScript error"
-            showFallbackError("JavaScript error: \(text)")
+           let level = payload["level"] as? String {
+            switch level {
+            case "error":
+                let text = payload["message"] as? String ?? "Unknown JavaScript error"
+                showFallbackError("JavaScript error: \(text)")
+            case "documentSize":
+                updatePreferredContentSize(from: payload["message"])
+            default:
+                break
+            }
         }
     }
 
@@ -212,7 +222,6 @@ class PreviewViewController: NSViewController, QLPreviewingController, WKNavigat
 
         webView.evaluateJavaScript(
             """
-            document.getElementById('status')?.replaceChildren();
             document.getElementById('viewer')?.replaceChildren(Object.assign(document.createElement('section'), { className: 'error', textContent: `\(escapedMessage)` }));
             """
         )
@@ -238,6 +247,23 @@ class PreviewViewController: NSViewController, QLPreviewingController, WKNavigat
     private func bundledResourceURL(named name: String, extension fileExtension: String) -> URL? {
         Bundle.main.url(forResource: name, withExtension: fileExtension, subdirectory: "Web")
             ?? Bundle.main.url(forResource: name, withExtension: fileExtension)
+    }
+
+    private func updatePreferredContentSize(from message: Any?) {
+        guard let sizePayload = message as? [String: Any],
+              let width = sizePayload["width"] as? Double,
+              let height = sizePayload["height"] as? Double else {
+            return
+        }
+
+        preferredContentSize = NSSize(width: width, height: height)
+    }
+
+    private static func clampedContentSize(_ size: NSSize) -> NSSize {
+        NSSize(
+            width: max(size.width, minimumContentSize.width),
+            height: max(size.height, minimumContentSize.height)
+        )
     }
 
 }
