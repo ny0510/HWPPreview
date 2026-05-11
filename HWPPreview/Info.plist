@@ -2,30 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>hwp</string>
-				<string>hwpx</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>Hancom HWP/HWPX Document</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSHandlerRank</key>
-			<string>Alternate</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>kr.ny64.hwp</string>
-				<string>kr.ny64.hwpx</string>
-				<string>com.hancom.hwp</string>
-				<string>com.hancom.hwpx</string>
-				<string>com.haansoft.hancomofficeviewer.mac.hwp</string>
-			</array>
-		</dict>
-	</array>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
 		<dict>
