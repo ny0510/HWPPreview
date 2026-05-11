@@ -9,7 +9,7 @@ Finder에서 `.hwp`, `.hwpx` 한글 문서를 바로 훑어볼 수 있게 해주
 
 ## Screenshot
 
-![HWPPreview Quick Look preview](docs/screenshots/quick-look-preview.png)
+![HWPPreview Quick Look preview](docs/screenshots/hwppreview.png)
 
 ## Features
 
