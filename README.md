@@ -2,7 +2,7 @@
 
 [![Release](https://img.shields.io/github/v/release/ny0510/HWPPreview?style=flat-square)](https://github.com/ny0510/HWPPreview/releases)
 [![Downloads](https://img.shields.io/github/downloads/ny0510/HWPPreview/total?style=flat-square)](https://github.com/ny0510/HWPPreview/releases)
-[![macOS](https://img.shields.io/badge/macOS-26.2%2B-black?style=flat-square&logo=apple)](https://www.apple.com/macos/)
+[![macOS](https://img.shields.io/badge/macOS-15.0%2B-black?style=flat-square&logo=apple)](https://www.apple.com/macos/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
 Finder에서 `.hwp`, `.hwpx` 한글 문서를 바로 훑어볼 수 있게 해주는 macOS Quick Look 확장입니다. 별도 문서 뷰어를 열지 않아도 파일을 선택하고 Space만 누르면 미리보기를 확인할 수 있습니다.
