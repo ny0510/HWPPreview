@@ -25,7 +25,7 @@ jobs:
           APP_NAME="HWPPreview"
           SCHEME="HWPPreview"
 
-          # 1. Archive (Force bypass code signing)
+          # 1. Archive without Developer ID signing.
           xcodebuild archive \
             -project "${APP_NAME}.xcodeproj" \
             -scheme "${SCHEME}" \
@@ -40,9 +40,24 @@ jobs:
           mkdir -p "dist"
           cp -R "build/${APP_NAME}.xcarchive/Products/Applications/${APP_NAME}.app" "dist/${APP_NAME}.app"
 
-          # 3. Zip
+          # 3. Best-effort ad-hoc signing for account-free distribution.
+          APP_PATH="dist/${APP_NAME}.app"
+          APPEX_PATH="${APP_PATH}/Contents/PlugIns/HWPQuickLookPreview.appex"
+
+          if [ ! -d "${APPEX_PATH}" ]; then
+            echo "Missing Quick Look extension: ${APPEX_PATH}"
+            exit 1
+          fi
+
+          codesign --force --sign - --timestamp=none "${APPEX_PATH}"
+          codesign --force --sign - --timestamp=none "${APP_PATH}"
+          codesign --verify --deep --strict --verbose=2 "${APP_PATH}"
+          codesign -dv --verbose=4 "${APP_PATH}"
+          codesign -dv --verbose=4 "${APPEX_PATH}"
+
+          # 4. Zip while preserving the app bundle parent directory.
           cd dist
-          zip -r "../${APP_NAME}.zip" "${APP_NAME}.app"
+          ditto -c -k --keepParent "${APP_NAME}.app" "../${APP_NAME}.zip"
           cd ..
 
       - name: Create Release

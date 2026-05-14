@@ -26,13 +26,22 @@ Finder에서 `.hwp`, `.hwpx` 한글 문서를 바로 훑어볼 수 있게 해주
 
 ```sh
 brew install --cask ny0510/tap/hwppreview
+xattr -dr com.apple.quarantine /Applications/HWPPreview.app
 ```
 
 ### GitHub Releases
 
 1. [Releases](https://github.com/ny0510/HWPPreview/releases)에서 최신 `HWPPreview.zip`을 다운로드합니다.
 2. 압축을 풀고 `HWPPreview.app`을 `/Applications` 폴더로 이동합니다.
-3. 앱을 한 번 실행해 Quick Look 확장을 macOS에 등록합니다.
+3. 아래 명령으로 다운로드 격리 속성을 제거합니다.
+
+```sh
+xattr -dr com.apple.quarantine /Applications/HWPPreview.app
+```
+
+4. 앱을 한 번 실행해 Quick Look 확장을 macOS에 등록합니다.
+
+GitHub Releases와 Homebrew 빌드는 Apple Developer ID로 서명하거나 공증하지 않은 ad-hoc 서명 빌드입니다. 개발자 계정 없이 배포하기 위한 차선책이므로, 설치 후에는 위 격리 속성 제거 과정이 필요할 수 있습니다.
 
 ## Usage
 
@@ -51,10 +60,10 @@ qlmanage -r cache
 killall Finder
 ```
 
-macOS의 보안 정책으로 인해 앱이 "손상되었으므로 열 수 없습니다"라는 오류가 발생할 수 있습니다. 이 경우 아래 명령으로 속성을 제거한 후 다시 시도해 보세요.
+macOS의 보안 정책으로 인해 앱이 "손상되었으므로 열 수 없습니다"라는 오류가 발생하거나 GitHub Releases/Homebrew 빌드의 Quick Look 확장이 보이지 않을 수 있습니다. 이 경우 앱을 `/Applications`로 옮긴 뒤 아래 명령으로 격리 속성을 제거하고, 앱을 한 번 실행한 후 Quick Look 확장을 다시 켜세요.
 
 ```sh
-xattr -d com.apple.quarantine /Applications/HWPPreview.app
+xattr -dr com.apple.quarantine /Applications/HWPPreview.app
 ```
 
 ## Contributing
